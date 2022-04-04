@@ -3,4 +3,5 @@ Fix1.Access to script at 'file:///E:/react_microweb/single-spa-imp/single-spa/si
     http://127.0.0.1:5500/index.html 
 <br/>
 
-single-spa 流程圖: https://www.twblogs.net/a/605cf8ce5c734b15c55135ce
+single-spa 流程圖: https://www.twblogs.net/a/605cf8ce5c734b15c55135ce<br/>
+https://www.bilibili.com/video/BV1kP4y1x783
