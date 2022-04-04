@@ -50,6 +50,9 @@ export function reroute() {
   console.log(appsToLoad, appsToMount, appsToUnmount);
 
   // 預加載
+  //   setTimeout(() => {
+  //     console.log("timeout 1000 ");
+  //   }, 1000);
   return loadApps(); // 應用加載，就是把應用用Hook拿到 (systemjs, jsonp, fetch)
 
   function loadApps() {
