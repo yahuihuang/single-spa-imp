@@ -2,3 +2,5 @@ Fix1.Access to script at 'file:///E:/react_microweb/single-spa-imp/single-spa/si
 => install VSCode plugin : Live Server
     http://127.0.0.1:5500/index.html 
 <br/>
+
+single-spa 流程圖: https://www.twblogs.net/a/605cf8ce5c734b15c55135ce

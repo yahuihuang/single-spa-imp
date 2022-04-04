@@ -1,7 +1,2 @@
-export function registerApplication() {
-  console.log("registerApplication()");
-}
-
-export function start() {
-  console.log("start()");
-}
+export { registerApplication } from "./applications/apps.js";
+export { start } from "./start.js";
