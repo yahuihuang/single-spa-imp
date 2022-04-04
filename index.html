@@ -10,14 +10,20 @@
     <!-- 切換導航加載不同應用 -->
     <a href="#/a">a應用</a>
     <a href="#/b">b應用</a>
-    <script src="https://cdn.bootcdn.net/ajax/libs/single-spa/5.9.3/umd/single-spa.min.js"></script>
-    <script>
-      let { registerApplication, start } = singleSpa;
+    <!-- 源碼中single-spa是用rollup打包的 -->
+   <script type="module">
+      import { registerApplication, start } from './single-spa/single-spa.js'
       // expose協議
       let app1 = {
-        bootstrap: [
+        bootstrap: [    // 只執行一次，不需每次加載
           async (customProps) => {
-            console.log("app1 啟動~1");
+            // koa中的中間件 vueRouter4 中間件
+            await new Promise((resolve) => {
+              setTimeout(() => {
+                console.log("app1 啟動~1");
+                resolve();
+              }, 3000);
+            });
           },
           async (customProps) => {
             console.log("app1 啟動~2");
@@ -64,7 +70,7 @@
         customProps // 自定義屬性
       );
 
-      start()
+      start();
     </script>
   </body>
 </html>
