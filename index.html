@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UX-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 切換導航加載不同應用 -->
+    <a href="#/a">a應用</a>
+    <a href="#/b">b應用</a>
+    <script src="https://cdn.bootcdn.net/ajax/libs/single-spa/5.9.3/umd/single-spa.min.js"></script>
+    <script>
+      let { registerApplication, start } = singleSpa;
+      // expose協議
+      let app1 = {
+        bootstrap: [
+          async (customProps) => {
+            console.log("app1 啟動~1");
+          },
+          async (customProps) => {
+            console.log("app1 啟動~2");
+          },
+        ],
+        mount: async (customProps) => {
+          console.log("app1 mount");
+        },
+        unmount: async (customProps) => {
+          console.log("app1 unmount");
+        },
+      };
+
+      let app2 = {
+        bootstrap: [
+          async (customProps) => {
+            console.log("app2 啟動~1");
+          },
+          async (customProps) => {
+            console.log("app2 啟動~2");
+          },
+        ],
+        mount: async (customProps) => {
+          console.log("app2 mount");
+        },
+        unmount: async (customProps) => {
+          console.log("app2 unmount");
+        },
+      };
+
+      const customProps = { name: "grace" };
+      // 註冊微應用
+      registerApplication(
+        "app1", // 用於過濾，防止加載重複的應用
+        async () => app1,
+        (location) => location.hash == "#/a",
+        customProps // 自定義屬性
+      );
+
+      registerApplication(
+        "app2", // 用於過濾，防止加載重複的應用
+        async () => app2,
+        (location) => location.hash == "#/b",
+        customProps // 自定義屬性
+      );
+
+      start()
+    </script>
+  </body>
+</html>
